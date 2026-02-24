@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Produk</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-icon">🍞</span>
+    <span class="logo-text">ALISA BAKERY</span>
+    <span class="logo-icon">🍞</span>
+  </div>
+
+  <ul>
+    <li><a href="index.html#products">Produk</a></li>
+    <li><a href="index.html#about">Tentang</a></li>
+    <li><a href="index.html#contact">Kontak</a></li>
+    <li><a href="index.html#lokasi">Lokasi</a></li>
+  </ul>
+</nav>
+
+<section class="product-detail fade-page">
+
+  <div class="detail-card">
+
+    <a href="index.html#products" class="back-btn">Kembali ke Produk</a>
+
+    <div class="detail-container">
+
+      <div class="detail-image">
+        <img id="productImage" src="" alt="">
+      </div>
+
+      <div class="detail-info">
+        <h1 id="productName"></h1>
+        <div class="detail-price">Rp <span id="productPrice"></span></div>
+
+        <p class="detail-description" id="productDesc"></p>
+
+        <!-- ORDER TYPE -->
+        <div class="order-type">
+          <h4>Pilih Metode Pesanan</h4>
+
+          <div class="order-options">
+            <button type="button" class="type-btn active">
+              Pick Up
+            </button>
+
+            <button type="button" class="type-btn disabled" disabled>
+              Delivery (Coming Soon)
+            </button>
+          </div>
+        </div>
+
+        <!-- QUANTITY -->
+        <div class="quantity-box">
+          <button onclick="decrease()">−</button>
+          <input type="number" id="qty" value="1" min="1">
+          <button onclick="increase()">+</button>
+        </div>
+
+        <p class="total">Total: Rp <span id="totalPrice"></span></p>
+
+        <button class="buy-btn" onclick="buyNow()">Beli Sekarang</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+
+const products = {
+  coklat: {
+    name: "Roti Coklat",
+    price: 85000,
+    image: "images/roti-coklat.jpg",
+    desc: "Lembut dan manis dengan isian coklat premium."
+  },
+  keju: {
+    name: "Roti Keju",
+    price: 75000,
+    image: "images/roti-keju.jpg",
+    desc: "Perpaduan roti empuk dan keju gurih."
+  },
+  strawberry: {
+    name: "Roti Strawberry",
+    price: 80500,
+    image: "images/roti-strawberry.jpg",
+    desc: "Roti lembut dengan selai strawberry segar."
+  },
+  mangga: {
+    name: "Roti Mangga",
+    price: 82000,
+    image: "images/roti-mangga.jpg",
+    desc: "Isian mangga segar dengan rasa manis tropis."
+  },
+  matcha: {
+    name: "Roti Matcha",
+    price: 88000,
+    image: "images/roti-matcha.jpg",
+    desc: "Roti lembut dengan krim matcha premium."
+  },
+  lemon: {
+    name: "Roti Lemon",
+    price: 78000,
+    image: "images/roti-lemon.jpg",
+    desc: "Rasa segar lemon dengan sentuhan manis."
+  }
+};
+
+const urlParams = new URLSearchParams(window.location.search);
+const productKey = urlParams.get("product");
+const product = products[productKey];
+
+let price = 0;
+let orderMethod = "Pick Up";
+
+if(product){
+  document.getElementById("productName").innerText = product.name;
+  document.getElementById("productPrice").innerText = formatRupiah(product.price);
+  document.getElementById("productImage").src = product.image;
+  document.getElementById("productDesc").innerText = product.desc;
+
+  price = product.price;
+  updateTotal();
+}
+
+function increase(){
+  let qty = document.getElementById("qty");
+  qty.value = parseInt(qty.value) + 1;
+  updateTotal();
+}
+
+function decrease(){
+  let qty = document.getElementById("qty");
+  if(qty.value > 1){
+    qty.value = parseInt(qty.value) - 1;
+    updateTotal();
+  }
+}
+
+function updateTotal(){
+  let qty = document.getElementById("qty").value;
+  document.getElementById("totalPrice").innerText = formatRupiah(qty * price);
+}
+
+function buyNow(){
+  let qty = document.getElementById("qty").value;
+  let total = qty * price;
+
+  window.location.href = 
+    `checkout.html?product=${product.name}&qty=${qty}&total=${total}&method=${orderMethod}`;
+}
+
+function formatRupiah(number){
+  return number.toLocaleString("id-ID");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - ALISA BAKERY</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-icon">🍞</span>
+    <span class="logo-text">ALISA BAKERY</span>
+    <span class="logo-icon">🍞</span>
+  </div>
+
+  <ul>
+    <li><a href="index.html#products">Produk</a></li>
+    <li><a href="index.html#about">Tentang</a></li>
+    <li><a href="index.html#contact">Kontak</a></li>
+    <li><a href="index.html#lokasi">Lokasi</a></li>
+  </ul>
+</nav>
+
+<section class="checkout-page fade-page">
+
+  <div class="checkout-card">
+
+    <a href="index.html#products" class="back-btn">Kembali ke Produk</a>
+
+    <h1>Checkout Pesanan</h1>
+
+   <div class="customer-form">
+  <h3>Data Pemesan</h3>
+
+  <input type="text" id="customerName" placeholder="Nama Lengkap" required>
+  <input type="tel" id="customerPhone" placeholder="Nomor WhatsApp" required>
+  
+  <label for="arrivalTime">Estimasi tiba ke toko (minimal 15 menit)</label>
+  <input 
+    type="number" 
+    id="arrivalTime" 
+    min="15" 
+    value="15"
+    required>
+
+  <textarea id="customerNote" placeholder="Catatan (opsional)"></textarea>
+
+  <button class="pay-btn" onclick="redirectWhatsApp()">Konfirmasi & Bayar</button>
+</div>
+
+  </div>
+
+</section>
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const product = urlParams.get("product");
+const qty = urlParams.get("qty");
+const total = urlParams.get("total");
+const method = urlParams.get("method");
+
+document.getElementById("summaryProduct").innerText = product;
+document.getElementById("summaryQty").innerText = qty;
+document.getElementById("summaryMethod").innerText = method;
+document.getElementById("summaryTotal").innerText = parseInt(total).toLocaleString("id-ID");
+
+function redirectWhatsApp(){
+
+  const name = document.getElementById("customerName").value;
+  const phone = document.getElementById("customerPhone").value;
+  const arrival = parseInt(document.getElementById("arrivalTime").value);
+  const note = document.getElementById("customerNote").value;
+
+  if(name === "" || phone === ""  || !arrival){
+    alert("Mohon Lengkapi Semua Data");
+    return;
+  }
+  if(arrival < 15){
+    alert("Maaf, waktu minimal kedatangan adalah 15 menit untuk persiapan produk.");
+    return;
+  }
+
+  const message =
+`Halo ALISA BAKERY
+
+Saya ingin melakukan pemesanan:
+
+Nama: ${name}
+No HP: ${phone}
+Estimasi tiba: ${arrival} menit
+Produk: ${product}
+Jumlah: ${qty}
+Metode: ${method} (Preparation time 15 min)
+Total: Rp ${parseInt(total).toLocaleString("id-ID")}
+
+Catatan: ${note || "-"}
+
+Terima kasih`;
+
+  window.open("https://wa.me/6281230913330?text=" + encodeURIComponent(message));
+}
+
+</script>
+
+</body>
+</html>

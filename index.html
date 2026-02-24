@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alisa - Toko Roti Giwangan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="logo">
+    <span class="logo-icon">🍞</span>
+    <span class="logo-text">ALISA BAKERY</span>
+    <span class="logo-icon">🍞</span>
+  </div>
+
+  <ul>
+  <li><a href="#products">Produk</a></li>
+  <li><a href="#about">Tentang</a></li>
+  <li><a href="#contact">Kontak</a></li>
+  <li><a href="#lokasi">Lokasi</a></li>
+</ul>
+</nav>
+
+
+  <!-- Hero -->
+  <section class="hero">
+
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide" style="background-image: url('images/banner1.png');"></div>
+    <div class="hero-slide" style="background-image: url('images/banner2.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/banner3.jpg');"></div>
+  </div>
+
+  <div class="hero-content fade-in">
+    <h2>Roti Fresh Tiap Hari</h2>
+    <p>Toko roti lokal di Giwangan dengan rasa lezat dan harga terjangkau.</p>
+    <a href="#products" class="btn">Lihat Produk</a>
+  </div>
+
+</section>
+
+
+  <!-- Produk -->
+  <section id="products" class="section">
+  <h2 class="section-title">Produk Alisa Bakery</h2>
+
+  <div class="product-slider-wrapper">
+
+    <button class="slide-btn left" onclick="slideLeft()">❮</button>
+
+    <div class="product-slider" id="productSlider">
+
+<!-- COKLAT -->
+<div class="card">
+  <div class="image-wrapper">
+    <span class="badge">Best Seller ⭐</span>
+    <img src="images/roti-coklat.jpg" alt="Roti Coklat">
+  </div>
+  <h3>Roti Coklat</h3>
+  <p>Lembut dan manis dengan isian coklat premium.</p>
+  <div class="price">Rp 85.000</div>
+  <a href="order.html?product=coklat" class="order-btn">Pesan</a>
+</div>
+
+<!-- KEJU -->
+<div class="card">
+  <div class="image-wrapper">
+    <img src="images/roti-keju.jpg" alt="Roti Keju">
+  </div>
+  <h3>Roti Keju</h3>
+  <p>Perpaduan roti empuk dan keju gurih.</p>
+  <div class="price">Rp 75.000</div>
+  <a href="order.html?product=keju" class="order-btn">Pesan</a>
+</div>
+
+<!-- STRAWBERRY -->
+<div class="card">
+  <div class="image-wrapper">
+    <img src="images/roti-strawberry.jpg" alt="Roti Strawberry">
+  </div>
+  <h3>Roti Strawberry</h3>
+  <p>Roti lembut dengan selai strawberry segar.</p>
+  <div class="price">Rp 80.500</div>
+  <a href="order.html?product=strawberry" class="order-btn">Pesan</a>
+</div>
+
+<!-- MANGGA -->
+<div class="card">
+  <div class="image-wrapper">
+    <img src="images/roti-mangga.jpg" alt="Roti Mangga">
+  </div>
+  <h3>Roti Mangga</h3>
+  <p>Isian mangga segar dengan rasa manis tropis.</p>
+  <div class="price">Rp 82.000</div>
+  <a href="order.html?product=mangga" class="order-btn">Pesan</a>
+</div>
+
+<!-- MATCHA -->
+<div class="card">
+  <div class="image-wrapper">
+    <span class="badge">Best Seller ⭐</span>
+    <img src="images/roti-matcha.jpg" alt="Roti Matcha">
+  </div>
+  <h3>Roti Matcha</h3>
+  <p>Roti lembut dengan krim matcha premium.</p>
+  <div class="price">Rp 88.000</div>
+  <a href="order.html?product=matcha" class="order-btn">Pesan</a>
+</div>
+
+<!-- LEMON -->
+<div class="card">
+  <div class="image-wrapper">
+    <img src="images/roti-lemon.jpg" alt="Roti Lemon">
+  </div>
+  <h3>Roti Lemon</h3>
+  <p>Rasa segar lemon dengan sentuhan manis.</p>
+  <div class="price">Rp 78.000</div>
+  <a href="order.html?product=lemon" class="order-btn">Pesan</a>
+</div>
+
+</div> <!-- end product-slider -->
+
+    <button class="slide-btn right" onclick="slideRight()">❯</button>
+
+  </div> <!-- end product-slider-wrapper -->
+</section>
+    
+<!-- Tentang Kami -->
+  <section id="about" class="about-modern">
+  <div class="about-modern-container">
+
+    <div class="about-modern-image">
+      <img src="images/tentang-kami.png" alt="Toko Alisa">
+    </div>
+
+    <div class="about-modern-content">
+      <h2>Tentang Kami</h2>
+      <div class="line"></div>
+
+      <p>
+        Didirikan dengan semangat usaha lokal, Alisa Bakery menghadirkan roti fresh setiap hari 
+        yang dibuat dari bahan berkualitas dan proses produksi yang higienis. 
+        Kami percaya bahwa roti yang baik bukan hanya soal rasa, tetapi juga tentang pengalaman 
+        dan kepuasan pelanggan.
+      </p>
+
+      <p>
+        Dengan pelayanan yang ramah dan harga yang terjangkau, Alisa Bakery terus berupaya 
+        menjadi toko roti terpercaya di Giwangan.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Info -->
+<section id="contact" class="contact-info">
+  <div class="contact-container">
+    <h2>Hubungi Kami</h2>
+    <div class="contact-line"></div>
+
+    <div class="contact-items">
+      <div class="contact-item">
+        <h3>WhatsApp</h3>
+        <p>+6281230913330</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p>alisanhrn24@gmail.com</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Instagram</h3>
+        <p>@alisamhrn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lokasi & Jam -->
+<section id="lokasi" class="lokasi-modern">
+  <div class="lokasi-container">
+
+    <div class="lokasi-image">
+      <img src="images/open-hours.jpg" alt="Jam Operasional Alisa Bakery">
+    </div>
+
+    <div class="lokasi-content">
+      <h2>Lokasi & Jam Buka</h2>
+<div class="line"></div>
+
+<h3>Alamat</h3>
+<p>
+  Jl. Kemendungan, Giwangan, Umbulharjo, Kota Yogyakarta, 
+  Daerah Istimewa Yogyakarta
+</p>
+
+<div class="jam-operasional">
+  <h4>Jam Operasional</h4>
+
+  <div class="jam-row">
+    <span>Senin – Jumat</span>
+    <span>08.00 – 18.00</span>
+  </div>
+
+  <div class="jam-row">
+    <span>Sabtu</span>
+    <span>08.00 – 13.00</span>
+  </div>
+
+  <div class="jam-row">
+    <span>Minggu</span>
+    <span>Closed</span>
+  </div>
+</div>
+    
+
+
+</section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Alisa - Toko Roti Giwangan</p>
+  </footer>
+
+
+
+<script>
+  function slideLeft() {
+    document.getElementById("productSlider").scrollBy({
+      left: -300,
+      behavior: "smooth"
+    });
+  }
+
+  function slideRight() {
+    document.getElementById("productSlider").scrollBy({
+      left: 300,
+      behavior: "smooth"
+    });
+  }
+</script>
+
+<script>
+  const slider = document.getElementById("heroSlider");
+  const totalSlides = 3;
+  let currentIndex = 0;
+
+  function nextSlide() {
+    currentIndex++;
+    if (currentIndex >= totalSlides) {
+      currentIndex = 0;
+    }
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(nextSlide, 3000);
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
